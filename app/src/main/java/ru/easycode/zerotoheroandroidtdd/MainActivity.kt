@@ -25,18 +25,19 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        textView.visibility = savedInstanceState.getInt(KEY)
+        val isInvisible = savedInstanceState.getBoolean("key")
+
+        if (isInvisible) {
+            textView.visibility = View.INVISIBLE
+        } else {
+            textView.visibility = View.VISIBLE
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        outState.putInt(KEY, textView.visibility)
+        outState.putBoolean("key", textView.visibility == View.INVISIBLE)
 
-
-    }
-
-    companion object{
-        private const val KEY = "visibility_text"
     }
 }
