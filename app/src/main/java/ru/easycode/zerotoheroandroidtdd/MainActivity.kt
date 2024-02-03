@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+
+    private val count = Count.Base(2)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,9 +17,9 @@ class MainActivity : AppCompatActivity() {
         val btn = findViewById<Button>(R.id.incrementButton)
 
         btn.setOnClickListener {
-            var value = textView.text.toString().toInt()
-            value = value + 2
-            textView.text = value.toString()
+            val result= count.increment(textView.text.toString())
+
+            textView.text = result
         }
     }
 }
