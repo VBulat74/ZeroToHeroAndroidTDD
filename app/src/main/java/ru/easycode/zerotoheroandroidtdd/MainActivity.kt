@@ -26,15 +26,24 @@ class MainActivity : AppCompatActivity() {
             btn.isEnabled = false
             progress.visibility = View.VISIBLE
 
-            scope.launch {
-                delay(3000)
 
+            btn.postDelayed({
                 textVierw.visibility = View.VISIBLE
 
                 progress.visibility = View.GONE
                 btn.isEnabled = true
 
-            }
+            }, 3000)
+
+//            scope.launch {
+//                delay(3000)
+//
+//                textVierw.visibility = View.VISIBLE
+//
+//                progress.visibility = View.GONE
+//                btn.isEnabled = true
+//
+//            }
 
 
         }
